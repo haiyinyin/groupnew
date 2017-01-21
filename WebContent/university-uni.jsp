@@ -65,6 +65,7 @@
 				Major:<%=uni.getMajor() %></br>
 				Time:<%=uni.getTime() %></br>
 			</p>
+			<h2>comment</h2>
 			<div>
 			<%
 								
@@ -99,6 +100,14 @@
 								%>
 							</table>
 			</div>
+			
+			<h2>add</h2>
+			<form method="post" action="comment_result.jsp">
+								comment:<input type="text" style="width: 300px; height: 80px;" name="comment">
+								<input type="hidden" name="id" value=<%=uni.getU_id() %> >
+								<input type="submit">
+							</form>
+			
     <div class="col-sm-2 sidenav">
       
     </div>
