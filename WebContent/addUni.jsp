@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@page import="model.university"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,10 +33,19 @@
      
     </div>
     <div class="col-sm-8 text-left"> 
-       <%  String name = (String) session.getAttribute("name");%>
-      <h3>welcome,<%=name %></h3>
-     
       
+      <h3>welcome</h3>
+				
+				<form action="addUni" method="post">
+				
+				<p>university:<input type="text"  name="uname"></p>
+				<p>country:<input type="text"  name="country"></p>
+				<p>city:<input type="text"  name="city"></p>
+				<p>major:<input type="text" name="major"></p>
+				<p>time:<input type="date"  name="time"></p>
+				<input type="submit" value="add">
+				
+      </form>
       <p></p>
     </div>
     <div class="col-sm-2 sidenav">

@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import controler.studentService;
 import model.university;
+import controler.studentService;
 
 /**
- * Servlet implementation class universityUni
+ * Servlet implementation class modify
  */
-@WebServlet("/universityUni")
-public class universityUni extends HttpServlet {
+@WebServlet("/modify")
+public class modify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public universityUni() {
+    public modify() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,18 +39,11 @@ public class universityUni extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id=Integer.parseInt(request.getParameter("id"));
+		int id=Integer.parseInt(request.getParameter("uid"));
 		university uni=new studentService().queryUnibyID(id);
 		HttpSession session=request.getSession();
 		session.setAttribute("uni",uni);
-		
-		List comm=new studentService().queryCommID(id);
-		session.setAttribute("comm",comm);
-		
-		response.sendRedirect("university-uni.jsp");
-		
-		
-		
+		response.sendRedirect("modify_uni.jsp");
 	}
 
 }

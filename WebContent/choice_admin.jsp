@@ -5,6 +5,7 @@
 <%@page import="model.stuInfo"%>
 <%@page import="model.university"%>
 <%@ page import="java.util.*"%>
+<%@page import="model.choice"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,18 +29,14 @@
 					<div class="row content">
 						<div class="col-sm-2 sidenav">
 							<p>
-							<form action="queryStu" method="post">
-								<input type="submit" value="profile">
+							<form action="queryChoiceAdmin" method="post">
+								<input type="submit" value="check choice">
 							</form>
 							</p>
 							<p>
-								<form action="queryAllUni" method="post">
-								<input type="submit" value="university">
-							</form>
-							</p>
-							<p>
-								<form action="queryChoice" method="post">
-								<input type="submit" value="choice">
+								<form action="queryUniAdmin" method="post">
+								<input type="submit" value="modify university">
+							
 							</form>
 							</p>
 
@@ -47,41 +44,29 @@
 						<div class="col-sm-8 text-left">
 						<p>
 								
-								<%
-								List unis=(List)session.getAttribute("unis");
-									Iterator iter = unis.iterator();
-								%>
-							
-							<table>
-								<tr>
-									<td>number</td>
-									<td>name</td>
-								</tr>
-										<%
-											int i = 0;
-											while (iter.hasNext()) {
-												university univ = (university) iter.next();
-										%>
-										<tr>
-											<td><%=univ.getU_id()%></td>
-											<td><form action="universityUni" method="post"> <td>
-											
-               
-											<input type="hidden" value="<%=univ.getU_id()%>" name="id">
-												<input type="submit" value=<%=univ.getU_name()%>></form></td>
-                                                
-											
-										</tr>
-
-										<%
-											i++;
-
-											}
-										%>
-									
-							</table>
-							
-							
+						
+			<%
+			 List choices=(List)session.getAttribute("choices");
+				//out.print(choice.size());
+				Iterator iter=choices.iterator();
+				%>
+				<table border="1">
+				<tr><td>id</td><td>name</td><td>choice1</td><td>choice2</td><td>choice3</td></tr>
+				<%
+				int i=0;
+				while(iter.hasNext()){
+					choice cho=(choice)iter.next();
+					%>
+					<tr><td><%=cho.getStu_id() %></td>
+					<td><%=cho.getName() %></td>
+					<td><%=cho.getChoice1() %></td>
+					<td><%=cho.getChoice2() %></td>
+					<td><%=cho.getChoice3() %></td></tr>
+					<% 
+					i++;
+				}
+				%>
+				</table>
 						  
 							
 						</div>

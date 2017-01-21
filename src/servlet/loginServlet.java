@@ -48,15 +48,16 @@ public class loginServlet extends HttpServlet {
 		String admin1="admin";
 		//new student object and set property
 		
-		
+		 HttpSession session = request.getSession();
+		 session.setAttribute("name", name);
+		 
+		 
 		if(identity.equals(stu)){
 			studentTable student=new studentTable();
 			student.setName(name);
 			student.setPassword(password);
-			 HttpSession session = request.getSession();
-			 session.setAttribute("name", name);
-			 session.setAttribute("student", student);
 			 
+			session.setAttribute("student", student);
 		if(new studentService().valiStu(student)){
 			response.sendRedirect("main.jsp");
 			
@@ -65,10 +66,11 @@ public class loginServlet extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		}}
 		else{
-			admin admin=new admin();
-			admin.setName(name);
-			admin.setPassword(password);
-			if(new adminService().valiAdmin(admin)){
+			admin adminLog=new admin();
+			adminLog.setName(name);
+			adminLog.setPassword(password);
+			
+			if(new adminService().valiAdmin(adminLog)){
 				response.sendRedirect("main_admin.jsp");
 				
 			}

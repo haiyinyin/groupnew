@@ -33,7 +33,7 @@
 							</p>
 							<p>
 								<form action="queryAllUni" method="post">
-								<input type="submit" value="profile">
+								<input type="submit" value="university">
 							</form>
 							</p>
 							<p>
@@ -58,7 +58,7 @@
 					//out.print(uni.getU_name()); 
 				%>
 				
-				number:<%out.print(uni.getU_id()); %> <input type="hidden" name="u_id" value=<%=uni.getU_id() %>></br>
+				 <input type="hidden" name="u_id" value=<%=uni.getU_id() %>></br>
 				university:<%=uni.getU_name() %></br>
 				Country:<%=uni.getCountry() %></br>
 				City:<%=uni.getCity() %></br>
@@ -102,7 +102,7 @@
 			</div>
 			
 			<h2>add</h2>
-			<form method="post" action="comment_result.jsp">
+			<form method="post" action="addCommentID">
 								comment:<input type="text" style="width: 300px; height: 80px;" name="comment">
 								<input type="hidden" name="id" value=<%=uni.getU_id() %> >
 								<input type="submit">

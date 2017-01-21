@@ -1,29 +1,29 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import controler.adminService;
 import controler.studentService;
+import model.studentTable;
 import model.university;
 
 /**
- * Servlet implementation class universityUni
+ * Servlet implementation class updateUni
  */
-@WebServlet("/universityUni")
-public class universityUni extends HttpServlet {
+@WebServlet("/updateUni")
+public class updateUni extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public universityUni() {
+    public updateUni() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,17 +40,24 @@ public class universityUni extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id=Integer.parseInt(request.getParameter("id"));
-		university uni=new studentService().queryUnibyID(id);
-		HttpSession session=request.getSession();
-		session.setAttribute("uni",uni);
+		int id=Integer.parseInt(request.getParameter("uid"));
+		String name=request.getParameter("uname");
+		String country=request.getParameter("country");
+		String city=request.getParameter("city");
+		String major=request.getParameter("major");
+		String time=request.getParameter("time");
+		university uni=new university();
 		
-		List comm=new studentService().queryCommID(id);
-		session.setAttribute("comm",comm);
+		uni.setU_name(name);
+		uni.setCountry(country);
+		uni.setCity(city);
+		uni.setMajor(major);
+		uni.setTime(time);
+		uni.setU_id(id);
 		
-		response.sendRedirect("university-uni.jsp");
-		
-		
+		if(new adminService().updateUni(uni)){
+		response.sendRedirect("modify.jsp");
+		}
 		
 	}
 

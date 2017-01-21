@@ -8,6 +8,7 @@ import java.util.List;
 
 import model.admin;
 import model.choice;
+import model.comment;
 import model.stuInfo;
 import model.university;
 public class adminService {
@@ -125,8 +126,35 @@ public class adminService {
 	}
 
 
+	public boolean addUniversity(university uni) {
+		try {
+			pstmt = conn.prepareStatement("insert into university"
+					+ "(u_name,country,city,major,time)" + "values(?,?,?,?,?)");
+			pstmt.setString(1, uni.getU_name());
+			
+			pstmt.setString(2, uni.getCountry());
+			pstmt.setString(3, uni.getCity());
+			pstmt.setString(4, uni.getMajor());
+			pstmt.setString(5, uni.getTime());
 
-	
+			pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public boolean deleteUni(int id) {
+		try {
+			pstmt = conn.prepareStatement("DELETE  FROM university WHERE u_id=? ");
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 
 }

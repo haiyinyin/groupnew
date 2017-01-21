@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.choice;
+import controler.adminService;
 import controler.studentService;
-import model.university;
 
 /**
- * Servlet implementation class universityUni
+ * Servlet implementation class queryChoiceAdmin
  */
-@WebServlet("/universityUni")
-public class universityUni extends HttpServlet {
+@WebServlet("/queryChoiceAdmin")
+public class queryChoiceAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public universityUni() {
+    public queryChoiceAdmin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,18 +41,12 @@ public class universityUni extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id=Integer.parseInt(request.getParameter("id"));
-		university uni=new studentService().queryUnibyID(id);
+		List choices=new adminService().queryChoice();
+		
 		HttpSession session=request.getSession();
-		session.setAttribute("uni",uni);
 		
-		List comm=new studentService().queryCommID(id);
-		session.setAttribute("comm",comm);
-		
-		response.sendRedirect("university-uni.jsp");
-		
-		
-		
+		session.setAttribute("choices",choices);
+		response.sendRedirect("choice_admin.jsp");
 	}
 
 }

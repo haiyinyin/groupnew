@@ -28,18 +28,14 @@
 					<div class="row content">
 						<div class="col-sm-2 sidenav">
 							<p>
-							<form action="queryStu" method="post">
-								<input type="submit" value="profile">
+							<form action="queryChoiceAdmin" method="post">
+								<input type="submit" value="check choice">
 							</form>
 							</p>
 							<p>
-								<form action="queryAllUni" method="post">
-								<input type="submit" value="university">
-							</form>
-							</p>
-							<p>
-								<form action="queryChoice" method="post">
-								<input type="submit" value="choice">
+								<form action="queryUniAdmin" method="post">
+								<input type="submit" value="modify university">
+							
 							</form>
 							</p>
 
@@ -64,11 +60,13 @@
 										%>
 										<tr>
 											<td><%=univ.getU_id()%></td>
-											<td><form action="universityUni" method="post"> <td>
 											
-               
-											<input type="hidden" value="<%=univ.getU_id()%>" name="id">
-												<input type="submit" value=<%=univ.getU_name()%>></form></td>
+										   <td><%=univ.getU_name()%></td>
+										   
+										   <form action="modify" method="post"><td><input type="submit" value="modify">
+										   <input type="hidden" value=<%=univ.getU_id() %> name="uid"></td></form>
+										<form action="delete" method="post"><td><input type="submit" value="delete">
+										<input type="hidden" value=<%=univ.getU_id() %> name="uid"></td></form>	
                                                 
 											
 										</tr>
@@ -80,8 +78,8 @@
 										%>
 									
 							</table>
-							
-							
+							</br>
+							<p><form action="addUni.jsp" method="post"><input type="submit" value="add"></form></p>
 						  
 							
 						</div>

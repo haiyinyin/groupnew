@@ -4,6 +4,7 @@
     
     <%@ page import="java.util.*" %>
         <%@page import="model.choice" %>
+        <%@page import="model.university" %>
          
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,8 +33,57 @@
      
       
     </div>
-    <div class="col-sm-8 text-left"> 
-   
+   <div class="col-sm-8 text-left"> 
+    	
+								<%
+								 List unis=(List)session.getAttribute("unis");
+									Iterator iter = unis.iterator();
+								%>
+							
+							<table>
+								<tr>
+									<td>number</td>
+									<td>name</td>
+									<td>first</td>
+									<td>second</td>
+									<td>third</td>
+									<form action="upadateCho" method="post">
+										<%
+											int i = 0;
+											while (iter.hasNext()) {
+												university univ = (university) iter.next();
+										%>
+										<tr>
+											<td><%=univ.getU_id()%></td>
+											
+											
+               
+											<td>
+												<%=univ.getU_name()%></td>
+                                                
+											<td><input type="radio" value="<%=univ.getU_name()%>"
+												name="choice1"></td>
+											<td><input type="radio" value="<%=univ.getU_name()%>"
+												name="choice2"></td>
+											<td><input type="radio" value="<%=univ.getU_name()%>"
+												name="choice3"></td>
+										</tr>
+
+										<%
+											i++;
+
+											}
+										%>
+									
+							</table>
+							<input type="submit">
+							</form>
+						  
+							
+	
+    
+   </br>
+   </br>
      
  <%
  

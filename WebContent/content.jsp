@@ -63,8 +63,8 @@
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Welcome</h1>
-     
-      <h3>Test</h3>
+     <%  String name = (String) session.getAttribute("name");%>
+      <h3><%=name %></h3>
       <p></p>
     </div>
     <div class="col-sm-2 sidenav">
