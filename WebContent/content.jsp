@@ -48,9 +48,17 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-        <p><a href="profile.jsp">profile</a></p>
-      <p><a href="university.jsp">university</a></p>
-      <p><a href="choice.jsp">choice</a></p>
+        <p><form action="queryStu" method="post" ><input type="submit" value="profile"></form></p>
+     <p>
+								<form action="queryAllUni" method="post">
+								<input type="submit" value="university">
+							</form>
+							</p>
+      <p>
+								<form action="queryChoice" method="post">
+								<input type="submit" value="choice">
+							</form>
+							</p>
      
     </div>
     <div class="col-sm-8 text-left"> 

@@ -54,7 +54,8 @@ public class loginServlet extends HttpServlet {
 			student.setName(name);
 			student.setPassword(password);
 			 HttpSession session = request.getSession();
-			 session.setAttribute("user", name);
+			 session.setAttribute("name", name);
+			 session.setAttribute("student", student);
 			 
 		if(new studentService().valiStu(student)){
 			response.sendRedirect("main.jsp");
@@ -75,6 +76,8 @@ public class loginServlet extends HttpServlet {
 				response.sendRedirect("index.jsp");
 			}
 		}
+			
+		
 			
 		}
 	}

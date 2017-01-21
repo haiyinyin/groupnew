@@ -133,8 +133,8 @@ public class studentService {
 		}
 	}
 
-	public List queryChoice(String name){
-		List choice =new ArrayList();
+	public choice queryChoice(String name){
+		
 		
 		
 		try{
@@ -149,10 +149,10 @@ public class studentService {
 				cho.setChoice1(rs.getString(3));
 				cho.setChoice2(rs.getString(4));
 				cho.setChoice3(rs.getString(5));
-				choice.add(cho);
+				return cho;
 				}
 			
-			return choice;
+			return null;
 			   
 			
 			
@@ -246,13 +246,13 @@ public class studentService {
 				return null;
 			}
 		}
-		public boolean addCommentID(comment comm, String name,int id) {
+		public boolean addCommentID(String comm, String name,int id) {
 			try {
 				pstmt = conn.prepareStatement("insert into comment"
 						+ "(stu_name,comment,u_id)" + "values(?,?,?)");
 				pstmt.setString(1, name);
 				
-				pstmt.setString(2, comm.getComment());
+				pstmt.setString(2, comm);
 				pstmt.setInt(3, id);
 				pstmt.executeUpdate();
 				return true;

@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.choice;
 import controler.studentService;
 
-
 /**
- * Servlet implementation class queryStu
+ * Servlet implementation class queryChoice
  */
-@WebServlet("/queryStu")
-public class queryStu extends HttpServlet {
+@WebServlet("/queryChoice")
+public class queryChoice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public queryStu() {
+    public queryChoice() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +33,6 @@ public class queryStu extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	/**
@@ -44,12 +42,10 @@ public class queryStu extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession  name = request.getSession(); 
 		  String stu_name=(String)name.getAttribute("name");
-		List stu=new studentService().queryStu(stu_name);
+		choice choice=new studentService().queryChoice(stu_name);
 		HttpSession session=request.getSession();
-		session.setAttribute("stu",stu);
-		response.sendRedirect("profile.jsp");
-		
-		
+		session.setAttribute("choice",choice);
+		response.sendRedirect("choice.jsp");
 	}
 
 }

@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,18 +12,17 @@ import javax.servlet.http.HttpSession;
 
 import controler.studentService;
 
-
 /**
- * Servlet implementation class queryStu
+ * Servlet implementation class queryCommID
  */
-@WebServlet("/queryStu")
-public class queryStu extends HttpServlet {
+@WebServlet("/queryCommID")
+public class queryCommID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public queryStu() {
+    public queryCommID() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +32,6 @@ public class queryStu extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	/**
@@ -42,14 +39,11 @@ public class queryStu extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession  name = request.getSession(); 
-		  String stu_name=(String)name.getAttribute("name");
-		List stu=new studentService().queryStu(stu_name);
+		int id=Integer.parseInt(request.getParameter("id"));
+		List comm=new studentService().queryCommID(id);
 		HttpSession session=request.getSession();
-		session.setAttribute("stu",stu);
-		response.sendRedirect("profile.jsp");
-		
-		
+		session.setAttribute("comm",comm);
+		response.sendRedirect("university.jsp");
 	}
 
 }

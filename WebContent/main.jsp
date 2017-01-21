@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<jsp:include page="islogin.jsp"></jsp:include>
 </head>
 <body>
 	<div id="container">
