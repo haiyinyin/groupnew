@@ -37,6 +37,10 @@
      
     </div>
     <div class="col-sm-8 text-left"> 
+    
+    <center><h1>Mon Profil</h1></center>
+    <div class="well well-sm">
+    
     <p> <%
      List stus=(List)session.getAttribute("stu");
      Iterator iter = stus.iterator();
@@ -44,19 +48,19 @@
     while (iter.hasNext()) {
       stuInfo stu = (stuInfo) iter.next();%>
   
-  id:<%=stu.getStu_id()%></br> name:<%=stu.getName()%></br> gender:<%
+  <h5 style="display:inline-block;">ID :&nbsp;&nbsp; &nbsp;&nbsp;</h5><%=stu.getStu_id()%></br> <h5 style="display:inline-block;">NAME : &nbsp;&nbsp; &nbsp;&nbsp;</h5><%=stu.getName()%></br> <h5 style="display:inline-block;">GENDER :&nbsp;&nbsp; &nbsp;&nbsp;</h5><%
     if (stu.getGender() == 1)
         out.print("female");
       else
         out.print("male");
   %></br>
-  major:<%=stu.getMajor()%></br> grade:<%=stu.getGrade()%></br> mark:<%=stu.getRemark()%></br>
+  <h5 style="display:inline-block;">MAJOR :&nbsp;&nbsp; &nbsp;&nbsp;</h5><%=stu.getMajor()%></br> <h5 style="display:inline-block;">GRADE : &nbsp;&nbsp; &nbsp;&nbsp;</h5><%=stu.getGrade()%></br> <h5 style="display:inline-block;">MARK : &nbsp;&nbsp; &nbsp;&nbsp;</h5><%=stu.getRemark()%></br>
 
 
   <%
     }
   %>
-     </p>
+     </p></div>
     </div>
     <div class="col-sm-2 sidenav">
       
