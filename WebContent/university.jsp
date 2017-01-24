@@ -44,7 +44,10 @@
 							</p>
 
 						</div>
-						<div class="col-sm-8 text-left">
+						
+						<h1>List of Universities</h1>
+						
+						<div class="col-sm-10 text-left">
 						<p>
 								
 								<%
@@ -54,8 +57,8 @@
 							
 							<table class="table table-bordered table-striped" style="width:100%;">
 								<tr>
-									<td>number</td>
-									<td>name</td>
+									<td class="info">#</td>
+									<td class="info">Name of University</td>
 								</tr>
 										<%
 											int i = 0;
@@ -64,7 +67,7 @@
 										%>
 										<tr>
 											<td><%=univ.getU_id()%></td>
-											<td><form action="universityUni" method="post"> <td>
+											<td><form action="universityUni" method="post"> 
 											
                
 											<input type="hidden" value="<%=univ.getU_id()%>" name="id">
