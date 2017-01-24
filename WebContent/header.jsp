@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -43,6 +43,7 @@
 </head>
 <body>
 
+<center><img src="./banniere_bg.png"/></center>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -51,14 +52,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+   
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="main.jsp">Home</a></li>
         <li><a href="#">About</a></li>
         
-        <li><a href="#">Contact</a></li>
+        <li><a href="./contact.jsp">Contact</a></li>
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -73,4 +74,6 @@
 
 </body>
 </html>
+
+
 
