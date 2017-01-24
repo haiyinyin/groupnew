@@ -48,7 +48,7 @@
 									Iterator iter = unis.iterator();
 								%>
 							
-							<table>
+							<table class="table table-bordered table-striped" style="width:100%;">
 								<tr>
 									<td>number</td>
 									<td>name</td>
